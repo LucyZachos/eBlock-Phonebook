@@ -24,3 +24,29 @@ function CustomLink ({to, children,  ...props }){
         </li>
     )
 }
+
+const navStyle = {
+    backgroundColor: "#333",
+    color: "white",
+    padding: "10px",
+  };
+  
+  const ulStyle = {
+    listStyle: "none",
+    padding: "0",
+    display: "flex",
+  };
+  
+  const liStyle = {
+    marginRight: "20px",
+  };
+  
+  const linkStyle = {
+    textDecoration: "none",
+    color: "inherit",
+  };
+  
+  const activeStyle = {
+    ...liStyle,
+    fontWeight: "bold",
+  };
