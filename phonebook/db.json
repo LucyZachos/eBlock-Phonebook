@@ -1,0 +1,55 @@
+{
+  "phonebook": [
+    {
+      "name": "School",
+      "id": 1,
+      "entries": [
+        {
+          "name": "Lucinda Zachos",
+          "number": "071-878-3138"
+        },
+        {
+          "name": "Tasmin",
+          "number": "071-398-2345"
+        },
+        {
+          "name": "Test",
+          "number": "010-498-6190"
+        },
+        {
+          "name": "Test",
+          "number": "010-498-6190"
+        }
+      ]
+    },
+    {
+      "name": "Work",
+      "id": 2,
+      "entries": [
+        {
+          "name": "Chris",
+          "number": "076-593-1862"
+        },
+        {
+          "name": "Lola",
+          "number": "076-593-1862"
+        },
+        {
+          "name": "Test",
+          "number": "010-498-6190"
+        }
+      ]
+    },
+    {
+      "name": "Friends",
+      "entries": [
+      ],
+      "id": 3
+    },
+    {
+      "name": "Test",
+      "entries": [],
+      "id": 4
+    }
+  ]
+}
