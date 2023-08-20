@@ -190,6 +190,8 @@ export default function AddEntry() {
           CANCEL
         </button>
       </div>
+      {/* Display the error message if it exists */}
+      {error && <p className="errorMessage">{error}</p>}
       {/* Display success or error messages */}
       {message && <p>{message}</p>}
     </div>
