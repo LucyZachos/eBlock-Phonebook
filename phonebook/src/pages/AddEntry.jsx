@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function AddEntry() {
   // Define state variables for phonebooks, selected phonebook, name, number, and messages
@@ -35,7 +36,12 @@ export default function AddEntry() {
 
   // Handle changes in the number input field
   const handleNumberChange = (e) => {
-    setNumber(e.target.value);
+    const inputValue = e.target.value;
+
+    // Use a regular expression to check if the input contains only numbers
+    if (/^[0-9]*$/.test(inputValue)) {
+      setNumber(inputValue);
+    }
   };
 
   // Handle form submission
@@ -85,7 +91,6 @@ export default function AddEntry() {
 
             // Set a success message and clear it after 3 seconds
             setMessage("Entry added successfully!");
-
             setTimeout(() => {
               setMessage("");
             }, 3000);
@@ -105,14 +110,6 @@ export default function AddEntry() {
         setMessage("");
       }, 3000);
     }
-  };
-
-  // Handle cancel button click to clear input fields and selection
-  const handleCancel = () => {
-    setName("");
-    setNumber("");
-    setSelectedPhonebook("");
-    setSelectionChanged(false);
   };
 
   return (
@@ -157,7 +154,6 @@ export default function AddEntry() {
             id="name"
             value={name}
             onChange={handleNameChange}
-            required
           />
           <label htmlFor="name" className="inputLabel">
             Name
@@ -167,13 +163,12 @@ export default function AddEntry() {
         <div>
           {/* Input field for entering a phone number */}
           <input
-            type="text"
+            type="tel"
             className="inputField"
             name="number"
             id="number"
             value={number}
             onChange={handleNumberChange}
-            required
           />
           <label htmlFor="number" className="inputLabel">
             Number
@@ -185,13 +180,11 @@ export default function AddEntry() {
         <button className="submitButton" onClick={handleSubmit}>
           SAVE
         </button>
-        {/* Button to cancel and clear input fields */}
-        <button className="cancelButton" onClick={handleCancel}>
+        {/* Button to cancel and redirect to Phonebook page */}
+        <Link to="/phonebook" className="cancelButton">
           CANCEL
-        </button>
+        </Link>
       </div>
-      {/* Display the error message if it exists */}
-      {error && <p className="errorMessage">{error}</p>}
       {/* Display success or error messages */}
       {message && <p>{message}</p>}
     </div>

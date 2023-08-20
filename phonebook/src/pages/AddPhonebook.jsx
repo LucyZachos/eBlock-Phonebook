@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function AddPhonebook() {
   // Define two state variables to hold the name and message
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
 
   // This function updates the 'name' state when the input field changes
   const handleNameChange = (e) => {
@@ -19,13 +19,7 @@ export default function AddPhonebook() {
     if (e.nativeEvent.submitter.name === "saveButton") {
       // Check if the name field is empty
       if (!name) {
-        setError("Name field cannot be empty!");
-
-        // Set a timer to clear the error message after 3 seconds
-        setTimeout(() => {
-          setError("");
-        }, 3000);
-
+        setMessage("Name field cannot be empty!");
         return; // Prevent form submission if the name field is empty
       }
 
@@ -48,11 +42,10 @@ export default function AddPhonebook() {
           console.log("Phonebook entry created:", data);
           setName(""); // Clear the input field after successful submission
           setMessage("Phonebook added successfully!"); // Set a success message
-          setError(""); // Clear any previous error message
         })
         .catch((error) => {
           console.error("Error:", error);
-          setError("An error occurred while adding the phonebook."); // Set an error message
+          setMessage("An error occurred while adding the phonebook."); // Set an error message
         });
     }
   };
@@ -78,15 +71,14 @@ export default function AddPhonebook() {
           <button type="submit" className="submitButton" name="saveButton">
             SAVE
           </button>
-          <button type="button" className="cancelButton">
+          {/* Button to cancel and redirect to Phonebook page */}
+          <Link to="/phonebook" className="cancelButton">
             CANCEL
-          </button>
+          </Link>
         </div>
       </form>
-      {/* Display the error message if it exists */}
-      {error && <p className="errorMessage">{error}</p>}
-      {/* Display the success message if it exists */}
-      {message && <p className="successMessage">{message}</p>}
+      {/* Display the message if it exists */}
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }

@@ -3,8 +3,7 @@ import Navbar from "./Navbar";
 import AddEntry from "./pages/AddEntry";
 import Phonebook from "./pages/Phonebook";
 import AddPhonebook from "./pages/addPhonebook";
-import { Route, Routes } from "react-router-dom";
-
+import { Route, Router, Routes } from "react-router-dom";
 
 function App() {
   return (
