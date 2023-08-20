@@ -1,2 +1,2 @@
 # eBlock-Phonebook
-Internship assessment
+Internship assessment created using React, JavaScript, CSS and JSON Server.
